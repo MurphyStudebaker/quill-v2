@@ -11,5 +11,10 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "postcss-loader": "^3.0.0",
+    "tailwindcss": "^1.4.6"
   }
 }
