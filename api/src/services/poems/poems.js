@@ -9,3 +9,7 @@ export const Poem = {
   categories: (_obj, { root }) =>
     db.poem.findOne({ where: { id: root.id } }).categories(),
 }
+
+export const createPoem = ({ input }) => {
+  return db.poem.create({ data: input })
+}

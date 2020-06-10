@@ -26,4 +26,8 @@ export const schema = gql`
     published: Boolean
     authorId: Int
   }
+
+  type Mutation {
+    createPoem(input: CreatePoemInput!): Poem
+  }
 `
