@@ -1,12 +1,13 @@
 import PoemsCell from 'src/components/PoemsCell'
+import { Link, routes } from '@redwoodjs/router'
+
+import BasicLayout from 'src/layouts/BasicLayout/BasicLayout'
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>HomePage</h1>
-      <p>Find me in ./web/src/pages/HomePage/HomePage.js</p>
+    <BasicLayout>
       <PoemsCell />
-    </div>
+    </BasicLayout>
   )
 }
 

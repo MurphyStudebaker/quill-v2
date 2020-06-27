@@ -34,11 +34,20 @@ const CreatePoemPage = () => {
   }
 
   return (
-    <div>
-      <Form onSubmit={onSubmit}>
-        <TextField name="title" />
-        <TextAreaField name="body" />
-        <Submit>Publish</Submit>
+    <div className="px-10">
+      <h1 className="font-bold pt-5"> New Poem </h1>
+      <Form onSubmit={onSubmit} className="flex flex-col w-full">
+        <label htmlFor="title" className="mt-5">
+          Title
+        </label>
+        <TextField name="title" className="border p-3" />
+        <label htmlFor="body" className="mt-5">
+          Poem
+        </label>
+        <TextAreaField name="body" className="border p-3 h-48" />
+        <Submit className="border mt-5 p-3 text-gray-100 bg-black">
+          Publish
+        </Submit>
       </Form>
     </div>
   )

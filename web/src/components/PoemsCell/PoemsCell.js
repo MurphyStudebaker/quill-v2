@@ -1,3 +1,5 @@
+import PoemPreview from '../PoemPreview/PoemPreview'
+
 export const QUERY = gql`
   query {
     poems {
@@ -20,10 +22,11 @@ export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
 export const Success = ({ poems }) => {
   return poems.map((poem) => (
-    <div key={poem.id}>
-      <h1>{poem.title}</h1>
-      <p>by {poem.author.name}</p>
-      <p>{poem.body}</p>
-    </div>
+    <PoemPreview
+      title={poem.title}
+      authorName={poem.author.name}
+      body={poem.body}
+      authorId={poem.author.id}
+    />
   ))
 }
