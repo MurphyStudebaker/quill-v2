@@ -6,11 +6,14 @@ const PoemPreview = (params) => {
       <h1 className="font-bold">{params.title}</h1>
       <p className="pb-3">
         by
-        <Link to={routes.author({ id: params.authorId })}>
+        <Link
+          className="font-semibold underline"
+          to={routes.author({ id: params.authorId })}
+        >
           {params.authorName}
         </Link>
       </p>
-      <p>{params.body}</p>
+      <div className="whitespace-pre-wrap">{params.body}</div>
     </div>
   )
 }

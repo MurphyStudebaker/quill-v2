@@ -12,14 +12,13 @@ export const user = ({ id }) => {
 
 export const User = {
   poems: (_obj, { root }) => {
-    db.user.findOne({
-      where: {
-        id: root.id,
-      },
-      include: {
-        poems: true,
-      },
-    })
+    db.user
+      .findOne({
+        where: {
+          id: root.id,
+        },
+      })
+      .poems()
   },
   profile: (_obj, { root }) =>
     db.user.findOne({ where: { id: root.id } }).profile(),
@@ -27,4 +26,8 @@ export const User = {
 
 export const createUser = ({ input }) => {
   return db.user.create({ data: input })
+}
+
+export const poemsByUser = ({ id }) => {
+  return db.poem.findMany({ where: { authorId: id } })
 }
