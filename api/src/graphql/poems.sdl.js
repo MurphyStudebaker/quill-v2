@@ -5,29 +5,35 @@ export const schema = gql`
     id: Int!
     createdAt: DateTime!
     title: String!
+    body: String!
     published: Boolean!
-    author: User!
-    authorId: Int!
+    author: User
+    authorId: Int
     categories: Category
   }
 
   type Query {
     poems: [Poem!]!
+    poem(id: Int!): Poem!
   }
 
   input CreatePoemInput {
     title: String!
+    body: String!
     published: Boolean!
-    authorId: Int!
+    authorId: Int
   }
 
   input UpdatePoemInput {
     title: String
+    body: String
     published: Boolean
     authorId: Int
   }
 
   type Mutation {
-    createPoem(input: CreatePoemInput!): Poem
+    createPoem(input: CreatePoemInput!): Poem!
+    updatePoem(id: Int!, input: UpdatePoemInput!): Poem!
+    deletePoem(id: Int!): Poem!
   }
 `

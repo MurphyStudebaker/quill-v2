@@ -1,6 +1,6 @@
 datasource DS {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -40,5 +40,5 @@ model Poem {
 model Category {
   id    Int    @id @default(autoincrement())
   name  String
-  poems Poem[] @relation(references: [id])
+  posts Poem[] @relation(references: [id])
 }

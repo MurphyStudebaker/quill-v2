@@ -1,6 +1,6 @@
 datasource DS {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -15,8 +15,8 @@ model User {
   id      Int      @id @default(autoincrement())
   email   String   @unique
   name    String?
-  profile Profile?
   poems   Poem[]
+  profile Profile?
 }
 
 model Profile {
@@ -31,7 +31,7 @@ model Poem {
   createdAt  DateTime   @default(now())
   title      String
   body       String
-  published  Boolean    @default("false")
+  published  Boolean    @default(false)
   author     User       @relation(fields: [authorId], references: [id])
   authorId   Int
   categories Category[] @relation(references: [id])
@@ -40,5 +40,5 @@ model Poem {
 model Category {
   id    Int    @id @default(autoincrement())
   name  String
-  poems Poem[] @relation(references: [id])
+  posts Poem[] @relation(references: [id])
 }

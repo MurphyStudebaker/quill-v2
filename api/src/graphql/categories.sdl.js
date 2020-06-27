@@ -18,4 +18,8 @@ export const schema = gql`
   input UpdateCategoryInput {
     name: String
   }
+
+  type Mutation {
+    createCategory(input: CreateCategoryInput!): Category!
+  }
 `

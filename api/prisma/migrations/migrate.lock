@@ -1,3 +1,6 @@
 # Prisma Migrate lockfile v1
 
 20200609191158-initial-data-model
+20200610154231-added-poem-body
+20200624183754-changed-name-of-poems
+20200624183825-changed-name-of-poems-on-categories

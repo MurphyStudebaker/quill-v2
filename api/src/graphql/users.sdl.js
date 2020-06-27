@@ -5,12 +5,13 @@ export const schema = gql`
     id: Int!
     email: String!
     name: String
-    poems: Poem
+    poems: [Poem]
     profile: Profile
   }
 
   type Query {
     users: [User!]!
+    user(id: Int!): User!
   }
 
   input CreateUserInput {
@@ -21,5 +22,9 @@ export const schema = gql`
   input UpdateUserInput {
     email: String
     name: String
+  }
+
+  type Mutation {
+    createUser(input: CreateUserInput): User
   }
 `
