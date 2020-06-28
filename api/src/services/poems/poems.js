@@ -4,6 +4,10 @@ export const poems = () => {
   return db.poem.findMany()
 }
 
+export const poemsByUser = ({ id }) => {
+  return db.poem.findMany({ where: { authorId: id } })
+}
+
 export const poem = ({ id }) => {
   return db.poem.findOne({
     where: { id },

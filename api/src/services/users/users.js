@@ -27,7 +27,3 @@ export const User = {
 export const createUser = ({ input }) => {
   return db.user.create({ data: input })
 }
-
-export const poemsByUser = ({ id }) => {
-  return db.poem.findMany({ where: { authorId: id } })
-}

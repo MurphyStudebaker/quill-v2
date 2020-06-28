@@ -15,7 +15,9 @@ const BasicLayout = ({ children }) => {
         </Link>
       </header>
       <main className="flex-grow px-10">{children}</main>
-      <footer className="px-10"> Created by a Queer Woman </footer>
+      <footer className="px-10 py-5 text-center bg-gray-200">
+        Created by a Queer Woman
+      </footer>
     </div>
   )
 }

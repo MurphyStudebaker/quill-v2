@@ -1,10 +1,12 @@
 import AuthorCell from 'src/components/AuthorCell'
 
+import BasicLayout from 'src/layouts/BasicLayout/BasicLayout'
+
 const AuthorPage = ({ id }) => {
   return (
-    <div>
+    <BasicLayout>
       <AuthorCell id={id} />
-    </div>
+    </BasicLayout>
   )
 }
 

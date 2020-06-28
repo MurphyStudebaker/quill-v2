@@ -1,3 +1,5 @@
+import PoemsByAuthorCell from 'src/components/PoemsByAuthorCell'
+
 export const QUERY = gql`
   query($id: Int!) {
     user(id: $id) {
@@ -18,11 +20,11 @@ export const Empty = () => <div>Empty</div>
 export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
 export const Success = ({ user }) => {
-  console.log(user)
   return (
     <div>
-      <h1>{user.name}</h1>
+      <h1 className="text-4xl font-bold">{user.name}</h1>
       <p>{user.email}</p>
+      <PoemsByAuthorCell id={parseInt(user.id)} />
     </div>
   )
 }

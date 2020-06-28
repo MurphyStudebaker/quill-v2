@@ -7,6 +7,7 @@ import {
   Label,
   useMutation,
 } from '@redwoodjs/web'
+import { navigate, routes } from '@redwoodjs/router'
 
 const CREATE_POEM = gql`
   mutation CreatePeomMutation($input: CreatePoemInput!) {
@@ -30,6 +31,7 @@ const CreatePoemPage = () => {
         },
       },
     })
+    navigate(routes.home())
     console.log(data)
   }
 

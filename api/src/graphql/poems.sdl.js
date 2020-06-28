@@ -15,6 +15,7 @@ export const schema = gql`
   type Query {
     poems: [Poem!]!
     poem(id: Int!): Poem!
+    poemsByUser(id: Int!): [Poem!]!
   }
 
   input CreatePoemInput {
