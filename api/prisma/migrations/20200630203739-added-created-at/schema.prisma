@@ -1,6 +1,6 @@
 datasource DS {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -12,11 +12,12 @@ generator client {
 // migrations for them.
 // TODO: Please remove the following example:
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  profile Profile?
-  poems   Poem[]
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  name      String?
+  profile   Profile?
+  poems     Poem[]
 }
 
 model Profile {
@@ -28,6 +29,7 @@ model Profile {
 
 model Poem {
   id         Int        @id @default(autoincrement())
+  createdAt  DateTime   @default(now())
   title      String
   body       String
   published  Boolean    @default("false")

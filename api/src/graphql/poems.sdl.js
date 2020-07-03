@@ -3,7 +3,6 @@ import gql from 'graphql-tag'
 export const schema = gql`
   type Poem {
     id: Int!
-    createdAt: DateTime!
     title: String!
     body: String!
     published: Boolean!
