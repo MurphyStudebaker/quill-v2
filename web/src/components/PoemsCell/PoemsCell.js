@@ -9,6 +9,7 @@ export const QUERY = gql`
       author {
         id
         name
+        email
       }
     }
   }
@@ -23,8 +24,9 @@ export const Failure = ({ error }) => <div>Error: {error.message}</div>
 export const Success = ({ poems }) => {
   return poems.map((poem) => (
     <PoemPreview
+      key={poem.id}
       title={poem.title}
-      authorName={poem.author.name}
+      authorName={poem.author.name || poem.author.email}
       body={poem.body}
       authorId={poem.author.id}
     />

@@ -8,6 +8,7 @@ import {
   useMutation,
 } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 
 const CREATE_POEM = gql`
   mutation CreatePeomMutation($input: CreatePoemInput!) {
@@ -19,20 +20,21 @@ const CREATE_POEM = gql`
 
 const CreatePoemPage = () => {
   const [create] = useMutation(CREATE_POEM)
+  const { currentUser } = useAuth()
 
   const onSubmit = (data) => {
+    const id = currentUser.id
     create({
       variables: {
         input: {
           title: data.title,
           body: data.body,
-          authorId: 1,
+          authorId: id,
           published: true,
         },
       },
     })
     navigate(routes.home())
-    console.log(data)
   }
 
   return (

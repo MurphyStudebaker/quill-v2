@@ -22,9 +22,21 @@ const config = {
 
 const adminApp = admin.initializeApp(config)
 
+const createUser = (email) => {
+  return db.user.create({
+    data: { email },
+  })
+}
+
 export const getCurrentUser = async (token) => {
   const { email, uid } = await adminApp.auth().verifyIdToken(token)
-  return { email, uid }
+  // check if user with that email exists in db
+  const user =
+    (await db.user.findOne({
+      where: { email },
+    })) || (await createUser(email))
+  console.log(user)
+  return user
 }
 
 // Use this function in your services to check that a user is logged in, and

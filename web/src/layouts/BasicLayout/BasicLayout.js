@@ -2,8 +2,8 @@ import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 
 const BasicLayout = ({ children }) => {
-  const { isAuthenticated, logIn, logOut } = useAuth()
-
+  const { isAuthenticated, logIn, logOut, currentUser } = useAuth()
+  console.log(currentUser)
   return (
     <div className="min-h-screen flex flex-col">
       <header className="flex justify-between align-center px-10 py-5">
