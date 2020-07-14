@@ -27,3 +27,7 @@ export const User = {
 export const createUser = ({ input }) => {
   return db.user.create({ data: input })
 }
+
+export const updateUser = ({ input }) => {
+  return db.user.update({ where: { id: input.id }, data: { name: input.name } })
+}

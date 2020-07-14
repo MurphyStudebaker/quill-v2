@@ -9,6 +9,7 @@ export const schema = gql`
     author: User
     authorId: Int
     categories: Category
+    snaps: Int
   }
 
   type Query {
@@ -25,15 +26,17 @@ export const schema = gql`
   }
 
   input UpdatePoemInput {
+    id: Int
     title: String
     body: String
     published: Boolean
+    snaps: Int
     authorId: Int
   }
 
   type Mutation {
     createPoem(input: CreatePoemInput!): Poem!
-    updatePoem(id: Int!, input: UpdatePoemInput!): Poem!
+    updatePoem(input: UpdatePoemInput!): Poem!
     deletePoem(id: Int!): Poem!
   }
 `

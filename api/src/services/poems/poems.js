@@ -29,10 +29,10 @@ export const createPoem = ({ input }) => {
   })
 }
 
-export const updatePoem = ({ id, input }) => {
+export const updatePoem = ({ input }) => {
   return db.poem.update({
+    where: { id: input.id },
     data: input,
-    where: { id },
   })
 }
 

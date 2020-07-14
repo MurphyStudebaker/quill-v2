@@ -20,11 +20,13 @@ export const schema = gql`
   }
 
   input UpdateUserInput {
+    id: Int
     email: String
     name: String
   }
 
   type Mutation {
     createUser(input: CreateUserInput): User
+    updateUser(input: UpdateUserInput): User
   }
 `

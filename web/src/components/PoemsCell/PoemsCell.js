@@ -6,6 +6,7 @@ export const QUERY = gql`
       id
       title
       body
+      snaps
       author {
         id
         name
@@ -25,9 +26,11 @@ export const Success = ({ poems }) => {
   return poems.map((poem) => (
     <PoemPreview
       key={poem.id}
+      id={poem.id}
       title={poem.title}
       authorName={poem.author.name || poem.author.email}
       body={poem.body}
+      snaps={poem.snaps}
       authorId={poem.author.id}
     />
   ))
